@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Input</title>
+  </head>
+  <body>
+    <!-- <Form action"">
+    <fieldset>
+      <legend>개인정보</legend>
+      <input type="text">
+      <input type="text">
+    </fieldset>
+    <fieldset>
+      <legend>사업자정보</legend>
+      <input type="text">
+      <input type="text">
+    </fieldset>
+  </Form> -->
+
+  <!-- required:필수로 입력값을 받아야 서브밋가능
+       readonly: 필드를 읽기전용필드로 만들 수 있음 값을 변경할 수 없음(서버로 전송됨)
+      disabled: 데이터 수정불가 데이터를 비활성화 시키겠다, 사용할 수 없다(서버로 전송안됨)
+    autofocus:초기에 해당필드에 커서를 위치 시킬수 있습니다
+    placeholder:입력필드가 비어있을때 해당 입력값의 설명 또는 가이드 문구를 삽입할 수 있다. -->
+    <form action="">
+      <fieldset>
+        <legend>Input Tag</legend>
+        <ul>
+          <li>
+            <label for="text">Text</label>
+            <input type="text" id="text" value="Jenny Kim" readonly />
+          </li>
+          <li>
+            <label for="email">Email</label>
+            <input type="text id="email" required value="hello@gmail.com" disabled />
+          </li>
+          <li>
+            <label for="tel">Tel</label>
+            <input type="tel" id="tel" required autofocus/>
+          </li>
+          <li>
+            <label for="url">URL</label>
+            <input type="url" id="url" required placeholder="url을 입력해주세요"/>
+          </li>
+          <li>
+            <label for="number">Number</label>
+            <input type="number" id="number" min="5" max="10" required />
+          </li>
+          <li>
+            <label for="range">Range</label>
+            <input type="range" id="range" required />
+          </li>
+          <li>
+            <label for="password">Password</label>
+            <input type="password" id="password">
+            Show
+            <input type="checkbox" value="show">
+          </li>
+        </ul>
+      </fieldset>
+      <fieldset>
+        <legend>날짜관련</legend>
+        <ul>
+          <li>
+            <label for="date">Date</label>
+            <input type="date" id="date" min"2021-07-10" max="2023-07-15">
+          </li>
+          <li>
+            <label for="month">Month</label>
+            <input type="month" id="month" />
+          </li>
+          <li>
+            <label for="week">Week</label>
+            <input type="week" id="week" />
+          </li>
+        </ul>
+      </fieldset>
+      <fieldset>
+        <legend>시간관련</legend>
+        <ul>
+          <li>
+            <label for="time">Time</label>
+            <input type="time" id="time" min"16:00" max="18:00">
+          </li>
+        </ul>
+      </fieldset>
+      <fieldset>
+        <legend>그 외</legend>
+        <ul>
+          <li>
+            <label for="file">파일 추가</label><br><br>
+            <input type="file" id="file"multiple />
+          </li>
+            <!-- 히든타입 인풋은 UI 상으로는 표시 안됨 -->
+            <input type="hidden" name="" value="">
+          
+        </ul>
+      <input type="submit"  value="제출하기" />
+    </form>
+  </body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FontStyle 1</title>
+    <style>
+      /* 구글 웹폰트(googlefont)에서 원하는 서체 찾아서 사용하기 */
+      @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+      /* * {
+        margin: 0px;
+        padding: 0px;
+      } */
+      html {
+        /* font-family: serif, monospace; */
+        font-family: 'Nanum Gothic', sans-serif;
+      }
+      .title {
+        font-size: 28px;
+        color: #0e5a34;
+        /* color: hsla(240, 70%, 46%, 0.486); */
+      }
+      .content {
+        font-size: 18px;
+      }
+      .font-italic {
+        font-style: italic;
+      }
+      .font-weight-bold {
+        font-weight: bold;
+      }
+      .font-weight-300 {
+        font-weight: 300;
+      }
+      .font-variant {
+        font-variant: small-caps;
+      }
+      .subtitle {
+        font-size: 20px;
+      }
+      .subtitle-rem {
+        font-size: 2rem;
+      }
+      .subtitle-em {
+        font-size: 2em;
+      }
+      .article {
+        font-size: 10px;
+      }
+      .rectangle.width {
+        width: 20vw;
+        height: 100px;
+        background-color: yellow;
+      }
+      .rectangle.height {
+        height: 20vh;
+        width: 100px;
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 class="title">짐코딩 채널</h2>
+    <p class="content">실용적인 코딩 컨텐츠를 만들어가는 짐코딩</p>
+    <p class="content font-italic">실용적인 코딩 컨텐츠를 만들어가는 짐코딩</p>
+    <p class="content font-weight-bold">실용적인 코딩 컨텐츠를 만들어가는 짐코딩</p>
+    <p class="content font-weight-300">실용적인 코딩 컨텐츠를 만들어가는 짐코딩</p>
+    <!-- 소문자 대문자 변경 -->
+    <p class="content font-variant">HELLO, gymcoding</p>
+
+    <hr />
+    <h2>px</h2>
+    <p class="subtitle">실용적인 코딩 컨텐츠를 만들어가는 짐코딩</p>
+    <h2>rem</h2>
+    <!-- rem은 최상위요소(ex:html)의 몇배를 할것이냐 -->
+    <p class="subtitle-rem">실용적인 코딩 컨텐츠를 만들어가는 짐코딩</p>
+    <h2>em</h2>
+    <div class="article">
+      <!--em은  현재 자신의 폰트사이즈 속성의 몇배를 할것이냐차이. -->
+      <p class="subtitle-em">실용적인 코딩 컨텐츠를 만들어가는 짐코딩</p>
+    </div>
+    <hr />
+    <!-- Viewport width -->
+    <!-- 100vw = 1200px
+    50vw = 600px
+    100vh = 1600px
+    50vh=800px -->
+    <h2>vw</h2>
+    <div class="rectangle width"></div>
+    <!-- Viewport Height -->
+    <h2>vh</h2>
+    <div class="rectangle height"></div>
+  </body>
+</html>

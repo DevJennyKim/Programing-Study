@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 자식 노드 자동완성 "div>ul>li"" -->
+    <div>
+      <ul>
+        <li></li>
+      </ul>
+    </div>
+    <!-- 형제노드 "div>+ul+ol+div" "+" -->
+    <div>
+      <ul></ul>
+      <ol></ol>
+      <div></div>
+    </div>
+    <!-- 반복하기 "div>ul>li*3" -->
+    <div>
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+
+    <!-- 아이디 "span#item" -->
+    <span id="item"></span>
+
+    <!-- "#item" -->
+    <div id="item"></div>
+
+    <!-- 클래스 속성 "span.title" -->
+    <span class="title"></span>
+
+    <!-- 콘텐츠 p.container{Hello worrld} -->
+    <p class="container">Hellow world</p>
+
+    <!-- 자동넘버링$ p.container{item$} ex>*5를 하면 5개가 만들어짐 -->
+    <p class="container">item1</p>
+    <p class="container">item2</p>
+    <p class="container">item3</p>
+    <p class="container">item4</p>
+    <p class="container">item5</p>
+  </body>
+</html>

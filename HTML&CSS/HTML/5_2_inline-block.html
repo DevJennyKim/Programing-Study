@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inline Block 2</title>
+    <style>
+      div {
+        background-color: red;
+        width: 100px;
+        height: 100px;
+        border: 1px solid blue;
+      }
+      span {
+        background-color: yellow;
+        width: 100px;
+        height: 100px;
+        border: 1px solid blue;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- div는 가로를 모두 차지하기때문에 가로를 다 차지함 그래서 세로로 나열됨-->
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <!-- 스팬태그는 요소만큼만 차지하기때문에 가로로 나열됨 -->
+    <!-- 인라인태그는 가로나 세로크기 조절안됨 -->
+    <span>1</span><span>2</span><span>3</span>
+  </body>
+</html>

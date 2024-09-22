@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flex box Nav bar</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .nav-container {
+        background-color: darkslategray;
+        list-style: none;
+        display: flex;
+      }
+      .nav-item {
+        padding: 15px;
+        cursor: pointer;
+      }
+      .nav-item:hover {
+        background-color: deepskyblue;
+      }
+      .nav-item a {
+        text-align: center;
+        text-decoration: none;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul class="nav-container">
+        <li class="nav-item"><a href="#"></a>홈</li>
+        <li class="nav-item"><a href="#"></a>상품</li>
+        <li class="nav-item"><a href="#"></a>장바구니</li>
+        <li class="nav-item"><a href="#"></a>마이페이지</li>
+      </ul>
+    </nav>
+  </body>
+</html>
