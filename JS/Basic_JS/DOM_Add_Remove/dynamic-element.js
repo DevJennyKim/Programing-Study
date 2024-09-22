@@ -21,12 +21,11 @@ btnAdd.addEventListener('click', function () {
   li.setAttribute('id', 'item'); //when making new li add the id
   btn.textContent = 'X'; //when making the btn add the value 'X'
   btn.setAttribute('class', 'remove-btn'); //set the class 'remove-btn' when making the btn
-  btn.addEventListener('click', function (event) {
-    //Set the click event to remove the target.
-    event.target.parentNode.remove(); //parameter>target(btn(X))>parentNode li
-  });
+  btn.addEventListener('click', removeParentNode); //Set the click event to remove the target.
   li.appendChild(btn); //under the li
   ul.appendChild(li); //under the ul
+  input.focus(); // after adding li, let cursor focus on input box
+  input.value = ''; // after adding li, make input.value => ''
 });
 
 //====================================================================================
@@ -41,11 +40,11 @@ btnBefore.addEventListener('click', function () {
   li.setAttribute('id', 'item');
   btn.textContent = 'X';
   btn.setAttribute('class', 'remove-btn');
-  btn.addEventListener('click', function (event) {
-    event.target.parentNode.remove();
-  });
+  btn.addEventListener('click', removeParentNode);//usu the reuseable function
   li.appendChild(btn);
   ul.insertBefore(li, targetItem); //insert before li what has the id item. still need to be under the ul
+  input.focus(); // after adding li, let cursor focus on input box
+  input.value = ''; // after adding li, make input.value => ''
 });
 
 //====================================================================================
@@ -56,7 +55,9 @@ removeTargetBtn.addEventListener('click', function () {
   let targetItem = document.querySelector('li#item');
   targetItem.remove(); //remove what has the id item.
 });
-removeBtn.addEventListener('click', function (event) {
-  console.log(event.target.parentNode);
-  event.target.parentNode.remove();
-});
+
+removeBtn.addEventListener('click', removeParentNode); //Set the click event to remove the target.
+
+function removeParentNode(event) { //reuseable function.
+  event.target.parentNode.remove(); //parameter>target(btn(X))>parentNode li
+}
