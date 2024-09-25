@@ -40,7 +40,7 @@ btnBefore.addEventListener('click', function () {
   li.setAttribute('id', 'item');
   btn.textContent = 'X';
   btn.setAttribute('class', 'remove-btn');
-  btn.addEventListener('click', removeParentNode);//usu the reuseable function
+  btn.addEventListener('click', removeParentNode); //usu the reuseable function
   li.appendChild(btn);
   ul.insertBefore(li, targetItem); //insert before li what has the id item. still need to be under the ul
   input.focus(); // after adding li, let cursor focus on input box
@@ -58,6 +58,7 @@ removeTargetBtn.addEventListener('click', function () {
 
 removeBtn.addEventListener('click', removeParentNode); //Set the click event to remove the target.
 
-function removeParentNode(event) { //reuseable function.
+function removeParentNode(event) {
+  //reuseable function.
   event.target.parentNode.remove(); //parameter>target(btn(X))>parentNode li
 }
