@@ -102,7 +102,7 @@ btn.addEventListener('click', function () {
 // null and undefine does not have length. so should check it is not null and undefine first before check the validate the password.
 
 //=========================================================
-// AND(&&)
+// AND(&&) ==> Return true only if all are true.
 //=========================================================
 let a1 = true && true; // t && t returns true
 let a2 = true && false; // t && f returns false
@@ -112,7 +112,7 @@ let a5 = 'Cat' && 'Dog'; // t && t returns Dog
 let a6 = false && 'Cat'; // f && t returns false
 let a7 = 'Cat' && false; // t && f returns false
 //=========================================================
-// OR(||)
+// OR(||) ==>Return true only if even one is true.
 //=========================================================
 let o1 = true || true; // t || t returns true
 let o2 = false || true; // f || t returns true
@@ -121,6 +121,24 @@ let o4 = false || 3 == 4; // f || f returns false
 let o5 = 'Cat' || 'Dog'; // t || t returns Cat
 let o6 = false || 'Cat'; // f || t returns Cat
 let o7 = 'Cat' || false; // t || f returns Cat
+
+//=========================================================
+// Short circuit evaluation
+// When using &&, if the left side is true, return the value of the right side.
+// When using &&, if the left side is false, return the left side's value.
+// When using ||, if the left side is true, return the left side's value.
+// When using ||, if the left side is false, return the value of the right side.
+//=========================================================
+
+console.log(true || 'Dog'); //==> true
+console.log(false || 'Dog'); //==> Dog
+console.log(false && 'Dog'); //==> false
+console.log(true && 'Dog'); //==> Dog
+
+console.log(true && true && 'Dog'); //=>Dog.
+//As for comparison, true && true evaluates to the right side. When examining the right side, it is true && dog, so it returns 'dog'."
+console.log(true && false && 'Dog'); //=>false
+
 //=========================================================
 // NOT(!)
 //=========================================================
@@ -143,3 +161,37 @@ let number = 7;
 //If we implement the above code using the ternary operator, it would look like this:
 let message = number % 2 === 1 ? 'it is odd' : 'it is even';
 console.log(message);
+
+console.log(10 > 0 ? '10 is higher than 0' : '10 is less than 0');
+// if the value is true  =>'10 is higher than 0'
+//if the value is false => '10 is less than 0'
+
+//===================================================================
+// Exponentiation Operator : 지수연산자 2의 몇승몇승,,,
+//===================================================================
+
+console.log(2 ** 2); //=>2의 2승
+
+//===================================================================
+// Null operator
+//===================================================================
+
+let name;
+console.log(name); //undefined
+name = name ?? 'Cat'; //Return the right value when the left value is null or undefined.
+console.log(name); //name was undefined so, return the cat and put it in to name so the value is cat
+name = name ?? 'dog'; // it is same ==> name ??= 'dog'
+console.log(name); //cat. as the name was not undefined
+
+//tip!!==============================================================
+// API Response Handling
+// It is used to set default values when data returned from an API is missing.
+// const data = response.data ?? defaultData; => Use defaultData if the API response is absent
+
+// Debugging and Logging
+// You can set conditions to log values only when they are not null or undefined
+// debugMode && console.log(debugInfo); ==> Log debugInfo only if debugMode is true
+
+// Frameworks like React and Vue.js
+// These operators help manage state and render logic more concisely within components.
+// const displayName = user.name ?? 'Anonymous'; ==> Use 'Anonymous' if the user name is not available
