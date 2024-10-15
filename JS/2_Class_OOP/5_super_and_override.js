@@ -20,13 +20,13 @@ class FemaleIdolModel extends IdolModel {
   part;
 
   constructor(name, year, part) {
-    super(name, year);
+    super(name, year); // Use 'super' to bring in values from the parent class
     this.part = part;
   }
 
   sayHello() {
-    // return `Hello, my name is ${this.name}. I am in charge of ${this.part}.`;
-    return `${super.sayHello()} I am in charge of ${this.part}.`;
+    // return `Hello, my name is ${this.name}. I am in charge of ${this.part}.`; // Use 'this' to refer to values inside the constructor.
+    return `${super.sayHello()} I am in charge of ${this.part}.`; // Use 'super' to bring in functions from the parent class
   }
 }
 

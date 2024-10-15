@@ -29,6 +29,7 @@ console.log(yujin);
 const jimin = new MaleIdolModel('Jimin', 1995);
 console.log(jimin);
 
+console.log('----------------');
 console.log(yujin.dance());
 console.log(yujin.name);
 
@@ -39,6 +40,8 @@ const jennyKim = new IdolModel('Jenny Kim', 1992);
 console.log(jennyKim);
 
 console.log(jennyKim.name);
+
+console.log('----------');
 
 console.log(yujin instanceof IdolModel);
 console.log(yujin instanceof FemaleIdolModel);

@@ -19,6 +19,7 @@ class IdolModel {
   }
 
   set setName(name) {
+    // prefer not to use setter because it allows changing the defined value.
     // Used when saving a new value
     this.name = name; // The setter must receive exactly one parameter. this.name is the property declared above, and the value after '=' is the parameter.
     // When a property is made private, direct access is not possible, so we use the setter to change it.
@@ -33,7 +34,7 @@ alice.setName = 'Sophia'; // How to use the setter
 console.log(alice); // alice's name is changed to Sophia.
 
 class IdolModel2 {
-  #name; // Private property
+  #name; // Private property : Values are actually stored, but they cannot be accessed externally.
   year;
 
   constructor(name, year) {
@@ -42,7 +43,8 @@ class IdolModel2 {
   }
 
   get name() {
-    return this.#name; // Getter for the private property
+    //Private properties cannot be accessed externally, but they can be accessed using getters
+    return this.#name; // Getter for the private property / 자주 사용
   }
 
   set name(name) {
