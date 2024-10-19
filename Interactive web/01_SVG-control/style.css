@@ -1,0 +1,23 @@
+div {
+  width: 500px;
+  border: 2px solid gray;
+  box-sizing: border-box;
+  padding: 50px;
+  margin: 50px auto;
+}
+
+:hover svg path {
+  stroke-dashoffset: 0;
+}
+
+svg {
+  width: 100%;
+}
+svg path {
+  fill: transparent;
+  stroke: skyblue;
+  stroke-width: 2;
+  stroke-dasharray: 943;
+  stroke-dashoffset: -943;
+  transition: all 3s;
+}/*# sourceMappingURL=style.css.map */
