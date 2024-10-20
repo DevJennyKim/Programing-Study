@@ -16,7 +16,7 @@ function getNumber() {
   return innerGetNumber();
 }
 
-// console.log(number);
+// console.log(number); of course error
 
 // console.log(getNumber());
 
@@ -90,4 +90,4 @@ const yuJin = new Idol('Yujin', 2003);
 console.log(yuJin.sayNameAndYear());
 
 console.log(yuJin.name);
-console.log(yuJin._year);
+console.log(yuJin._year); //undefined because did not use a this.
