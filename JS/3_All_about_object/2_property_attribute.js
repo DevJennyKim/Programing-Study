@@ -10,10 +10,12 @@ const yuJin = {
   name: 'Yujin',
   year: 2003,
 };
-
 console.log(Object.getOwnPropertyDescriptor(yuJin, 'year'));
 
 /**
+ * if the Object(uppercase=>(Constructor function or class)) and . =>static function
+ *
+ * result => {value:'2003',writable:true, enumerable:true, configurable:true }
  * 1) value - The actual value of the property.
  * 2) writable - Indicates whether the value can be modified. Setting it to false
  *               prevents modification of the property value.
@@ -24,15 +26,14 @@ console.log(Object.getOwnPropertyDescriptor(yuJin, 'year'));
  *                   However, if writable is true, changing the value and writable is allowed.
  */
 console.log(Object.getOwnPropertyDescriptor(yuJin, 'name'));
-
-console.log(Object.getOwnPropertyDescriptors(yuJin));
+console.log(Object.getOwnPropertyDescriptors(yuJin)); //=>getOwnPropertyDescriptors : it is ok if I just put the value. the result is same.
 
 const yuJin2 = {
   name: 'Yujin',
   year: 2003,
 
   get age() {
-    return new Date().getFullYear() - this.year;
+    return new Date().getFullYear() - this.year; //new Date().getFullYear(): current year
   },
 
   set age(age) {
@@ -40,21 +41,30 @@ const yuJin2 = {
   },
 };
 
-console.log(yuJin2);
-console.log(yuJin2.age);
-
-yuJin2.age = 32;
-console.log(yuJin2.age);
-console.log(yuJin2.year);
+console.log(yuJin2); // result => {name:'Yujin', year:2003, age:[Getter/Setter]}
+console.log(yuJin2.age); //Getter result => 20
+yuJin2.age = 32; //Setter
+console.log(yuJin2.age); //result => 32
+console.log(yuJin2.year); //result =>1991
 
 console.log(Object.getOwnPropertyDescriptor(yuJin2, 'age'));
+/**result =>there are no value and writable
+ *{
+ * get:[function: get age],
+ * set:[function: set age],
+ * enumerable:true
+ * configurable:true
+ * }
+ */
 
+//Object.defineProperty(object name, 'key', {attributes})
 Object.defineProperty(yuJin2, 'height', {
   value: 172,
   writable: true,
   enumerable: true,
   configurable: true,
 });
+//if don't put any value of writable, enumerable, configurable ==> the value of writable, enumerable, configurable is going to be false when using the "defineProperty"
 console.log(yuJin2);
 console.log(Object.getOwnPropertyDescriptor(yuJin2, 'height'));
 
@@ -105,19 +115,20 @@ Object.defineProperty(yuJin2, 'height', {
 console.log(Object.getOwnPropertyDescriptor(yuJin2, 'height'));
 
 // Object.defineProperty(yuJin2, 'height', {
-//     enumerable: false,
+//     enumerable: false, ==>going to be error as configurable is false,
 // });
 
 Object.defineProperty(yuJin2, 'height', {
+  //value could be changed
   value: 172,
 });
 console.log(Object.getOwnPropertyDescriptor(yuJin2, 'height'));
 
 Object.defineProperty(yuJin2, 'height', {
-  writable: false,
+  writable: false, //no error as it is changing to be true to false
 });
 console.log(Object.getOwnPropertyDescriptor(yuJin2, 'height'));
 
 Object.defineProperty(yuJin2, 'height', {
-  writable: true,
+  writable: true, //yes error. it can not be changed to be false to true
 });

@@ -22,7 +22,7 @@ console.log(IdolModel.prototype.constructor === IdolModel); // true
 console.log(IdolModel.prototype.constructor.prototype === IdolModel.prototype); // true
 
 // Create an instance of IdolModel
-const yuJin = new IdolModel('안유진', 2003);
+const yuJin = new IdolModel('Yujin', 2003);
 console.log(yuJin.__proto__); // Logs the prototype of the yuJin instance
 console.log(yuJin.__proto__ === IdolModel.prototype); // true
 
@@ -41,13 +41,13 @@ function IdolModel2(name, year) {
 
   // Method to simulate saying hello
   this.sayHello = function () {
-    return `${this.name}이 인사를 합니다.`; // Returns a greeting string
+    return `${this.name} is saying hello.`; // Returns a greeting string
   };
 }
 
 // Create instances of IdolModel2
-const yuJin2 = new IdolModel2('안유진', 2003);
-const wonYoung2 = new IdolModel2('장원영', 2002);
+const yuJin2 = new IdolModel2('Yujin', 2003);
+const wonYoung2 = new IdolModel2('Won Young', 2002);
 
 console.log(yuJin2.sayHello()); // Calls sayHello on yuJin2
 console.log(wonYoung2.sayHello()); // Calls sayHello on wonYoung2
@@ -62,12 +62,12 @@ function IdolModel3(name, year) {
 
 // Define sayHello method on the prototype
 IdolModel3.prototype.sayHello = function () {
-  return `${this.name}이 인사를 합니다.`; // Returns a greeting string
+  return `${this.name} is saying hello.`; // Returns a greeting string
 };
 
 // Create instances of IdolModel3
-const yuJin3 = new IdolModel3('안유진', 2003);
-const wonYoung3 = new IdolModel3('장원영', 2004);
+const yuJin3 = new IdolModel3('Yujin', 2003);
+const wonYoung3 = new IdolModel3('Won Young', 2004);
 
 console.log(yuJin3.sayHello()); // Calls sayHello on yuJin3
 console.log(wonYoung3.sayHello()); // Calls sayHello on wonYoung3
@@ -78,7 +78,7 @@ console.log(yuJin3.hasOwnProperty('sayHello')); // false, sayHello is a prototyp
 
 // Static method on the constructor
 IdolModel3.sayStaticHello = function () {
-  return '안녕하세요 저는 static method 입니다.'; // Returns a static greeting string
+  return 'Hello, I am a static method.'; // Returns a static greeting string
 };
 
 console.log(IdolModel3.sayStaticHello()); // Calls the static method
@@ -92,16 +92,16 @@ function IdolModel4(name, year) {
 
   // Instance method to say hello
   this.sayHello = function () {
-    return '안녕하세요 저는 인스턴스 메서드입니다!'; // Returns an instance method greeting
+    return 'Hello, I am an instance method!'; // Returns an instance method greeting
   };
 }
 
 // Prototype method to say hello
 IdolModel4.prototype.sayHello = function () {
-  return '안녕하세요 저는 prototype 메서드입니다!'; // Returns a prototype method greeting
+  return 'Hello, I am a prototype method!'; // Returns a prototype method greeting
 };
 
-const yuJin4 = new IdolModel4('안유진', 2003);
+const yuJin4 = new IdolModel4('Yujin', 2003);
 
 // Property shadowing - the instance method overrides the prototype method
 console.log(yuJin4.sayHello()); // Calls the instance method
@@ -118,7 +118,7 @@ function IdolModel(name, year) {
 
 // Prototype method to say hello
 IdolModel.prototype.sayHello = function () {
-  return `${this.name} 인사를 합니다.`; // Returns a greeting string
+  return `${this.name} is saying hello.`; // Returns a greeting string
 };
 
 function FemaleIdolModel(name, year) {
@@ -127,13 +127,13 @@ function FemaleIdolModel(name, year) {
 
   // Method to simulate dancing
   this.dance = function () {
-    return `${this.name}가 춤을 춥니다.`; // Returns a dancing string
+    return `${this.name} is dancing.`; // Returns a dancing string
   };
 }
 
 // Create instances of IdolModel and FemaleIdolModel
-const gaEul = new IdolModel('가을', 2004);
-const ray = new FemaleIdolModel('레이', 2004);
+const gaEul = new IdolModel('Ga Eul', 2004);
+const ray = new FemaleIdolModel('Ray', 2004);
 
 console.log(gaEul.__proto__); // Logs the prototype of gaEul
 console.log(gaEul.__proto__ === IdolModel.prototype); // true
@@ -160,6 +160,6 @@ console.log(FemaleIdolModel.prototype === IdolModel.prototype); // false
 FemaleIdolModel.prototype = IdolModel.prototype;
 
 // Create a new instance of FemaleIdolModel
-const eSeo = new FemaleIdolModel('이서', 2007);
+const eSeo = new FemaleIdolModel('E Seo', 2007);
 console.log(Object.getPrototypeOf(eSeo) === FemaleIdolModel.prototype); // false, it's now IdolModel.prototype
 console.log(FemaleIdolModel.prototype === IdolModel.prototype); // true

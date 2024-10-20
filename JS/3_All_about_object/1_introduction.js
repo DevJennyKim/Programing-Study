@@ -7,12 +7,14 @@
  * 3) Using a function to create an object
  */
 
+//the basics
 const yuJin = {
   name: 'Yujin',
   year: 2003,
 };
 console.log(yuJin);
 
+//class type
 class IdolModel {
   name;
   year;

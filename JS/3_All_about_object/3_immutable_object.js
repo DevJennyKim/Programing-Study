@@ -19,25 +19,26 @@ console.log(yuJin);
 /**
  * Extensible
  */
-console.log(Object.isExtensible(yuJin));
+console.log(Object.isExtensible(yuJin)); // result => true
 
 yuJin['position'] = 'vocal';
 
 console.log(yuJin);
 
-Object.preventExtensions(yuJin);
+Object.preventExtensions(yuJin); // extensible => false
 
 console.log(Object.isExtensible(yuJin));
 
-yuJin['groupName'] = 'IVE'; // This won't work after preventExtensions
+yuJin['groupName'] = 'IVE'; // no error but this won't work after preventExtensions
 console.log(yuJin);
 
-delete yuJin['position'];
+delete yuJin['position']; // but delete is working
 console.log(yuJin);
 
 /**
  * Seal
  */
+console.log('-------');
 const yuJin2 = {
   name: 'Yujin',
   year: 2003,
@@ -52,13 +53,13 @@ const yuJin2 = {
 };
 console.log(yuJin2);
 
-console.log(Object.isSealed(yuJin2));
+console.log(Object.isSealed(yuJin2)); //false
 
-Object.seal(yuJin2);
+Object.seal(yuJin2); //make sealed
 
-console.log(Object.isSealed(yuJin2));
+console.log(Object.isSealed(yuJin2)); //true
 
-yuJin2['groupName'] = 'IVE'; // This will work
+yuJin2['groupName'] = 'IVE'; // This will not work
 console.log(yuJin2);
 
 delete yuJin2['name']; // This won't work
@@ -74,6 +75,7 @@ console.log(Object.getOwnPropertyDescriptor(yuJin2, 'name'));
  *
  * Makes the object immutable, preventing any changes.
  */
+console.log('-------');
 const yuJin3 = {
   name: 'Yujin',
   year: 2003,
@@ -98,7 +100,7 @@ delete yuJin3['name']; // This won't work
 console.log(yuJin3);
 
 // Object.defineProperty(yuJin3, 'name', {
-//     value: 'CodeFactory', // This won't work either
+//     value: 'Jenny', // This won't work either
 // })
 console.log(Object.getOwnPropertyDescriptor(yuJin3, 'name'));
 

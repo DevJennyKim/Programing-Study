@@ -1,90 +1,81 @@
 /**
- * this
- *
- * JS uses Lexical Scope, which means the upper scope of a function
- * is evaluated at the time of definition.
- *
- * *****However, the binding of the this keyword is determined
- * at the time the object is created.
+ * Scope
  */
-const testFunction = function () {
-  return this;
-};
+var numberOne = 20;
 
-console.log(testFunction());
-console.log(testFunction() === global);
-
-const yuJin = {
-  name: 'Yujin',
-  year: 2003,
-  sayHello: function () {
-    return `Hello, I am ${this.name}.`;
-  },
-};
-
-console.log(yuJin.sayHello());
-
-function Person(name, year) {
-  this.name = name;
-  this.year = year;
-
-  this.sayHello = function () {
-    return `Hello, I am ${this.name}.`;
-  };
+function levelOne() {
+  console.log(numberOne);
 }
 
-const yuJin2 = new Person('Yujin', 2003);
-console.log(yuJin2.sayHello());
+// levelOne();
 
-Person.prototype.dance = function () {
-  function dance2() {
-    return `${this.name} is dancing.`;
+function levelOne() {
+  var numberOne = 40;
+
+  console.log(numberOne);
+}
+
+// levelOne();
+
+console.log(numberOne);
+
+function levelOne() {
+  var numberOne = 40;
+
+  function levelTwo() {
+    var numberTwo = 99;
+
+    console.log(`levelTwo numberTwo : ${numberTwo}`);
+    console.log(`levelTwo numberOne : ${numberOne}`);
   }
 
-  return dance2();
-};
-console.log(yuJin2.dance());
+  levelTwo();
+  console.log(`levelOne numberOne : ${numberOne}`);
+}
+
+levelOne();
+console.log(numberOne);
+// console.log(numberTwo);
 
 /**
- * Remember three things about what the this keyword refers to:
+ * JS -> Lexical Scope
  *
- * 1) When called as a regular function, this refers to the top-level object (global or window).
- * 2) When called as a method, this refers to the calling object.
- * 3) When an object is created using the new keyword, this refers to the object.
+ * The declared position determines the upper scope.
+ *
+ * Dynamic Scope
+ *
+ * The execution position determines the upper scope.
  */
+var numberThree = 3;
 
-/**
- * 1) apply()
- * 2) call()
- * 3) bind()
- */
-function returnName() {
-  return this.name;
+function functionOne() {
+  var numberThree = 100;
+
+  functionTwo();
 }
 
-console.log(returnName());
-
-const yuJin3 = {
-  name: 'Yujin',
-};
-
-console.log(returnName.call(yuJin3));
-console.log(returnName.apply(yuJin3));
-
-/**
- * 1) call -> Passes arguments in order based on commas.
- * 2) apply -> Arguments must be entered as a list.
- */
-function multiply(x, y, z) {
-  return `${this.name} / Result: ${x * y * z}`;
+function functionTwo() {
+  console.log(numberThree);
 }
 
-console.log(multiply.call(yuJin3, 3, 4, 5));
-console.log(multiply.apply(yuJin3, [3, 4, 5]));
+functionOne();
+
+var i = 999;
+
+for (var i = 0; i < 10; i++) {
+  console.log(i);
+}
+console.log(`i in global scope : ${i}`);
+
+i = 999;
+// block level scope
+for (let i = 0; i < 10; i++) {
+  console.log(i);
+}
+console.log(`i in global scope : ${i}`);
 
 /**
- * bind()
+ * The var keyword only creates function-level scope.
+ *
+ * The let and const keywords create both function-level and block-level scopes.
  */
-const laterFunc = multiply.bind(yuJin3, 3, 4, 5);
-console.log(laterFunc);
-console.log(laterFunc());

@@ -1,20 +1,38 @@
 <script>
-    function one(){
-        console.log('run one');
-        console.log('run one finished');
-    }
+  /**
+   * Execution Context?
+   *  - An Execution Context is a special environment that contains the JavaScript code to be executed and the information needed to execute that code. You can think of it as the environment that holds all the data necessary for code execution.
+   *  - Execution Context can be broadly divided into two categories:
+   *      * Global Context -> This is the top-level execution context, which is created whenever code is executed. It contains the window object in the web environment or the global object in Node.js.
+   *      * Function Context -> This is the context that is created each time a function is executed. It holds all the information related to the function execution.
+   */
 
-    function two(){
-        console.log('run two');
-        one();
-        console.log('run two finished');
-    }
+  /**
+   * Execution Context Stack
+   * - Creation Phase
+   *   * The Global Object is created. The window object in the web environment or the global object in Node.js is created, and the arguments object is created for functions.
+   *   * The value of this is bound to the window or global object.
+   *   * Variables and functions are allocated in the Memory Heap and initialized with the default value of undefined. ==> hosting
+   * - Execution Phase
+   *   * The code is executed.
+   *   * A new Execution Context is created if necessary.
+   */
+  function one() {
+    console.log('run one');
+    console.log('run one finished');
+  }
 
-    function three(){
-        console.log('run three');
-        two();
-        console.log('run three finished');
-    }
+  function two() {
+    console.log('run two');
+    one();
+    console.log('run two finished');
+  }
 
-    three();
+  function three() {
+    console.log('run three');
+    two();
+    console.log('run three finished');
+  }
+
+  three();
 </script>

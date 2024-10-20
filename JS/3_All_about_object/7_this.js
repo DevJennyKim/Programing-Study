@@ -1,55 +1,56 @@
 /**
  * this
- * 
- * JS는 Lexical Scope를 사용하기때문에 함수의 상위 스코프가
- * 정의 시점에 평가된다. 
- * 
- * *****하지만 this 키워드는 바인딩이 객체가 생성되는 시점에 결정된다.
+ *
+ * JS uses Lexical Scope, which means the upper scope of a function
+ * is evaluated at the time of definition.
+ *
+ * *****However, the binding of the this keyword is determined
+ * at the time the object is created.
  */
-const testFunction = function(){
-    return this;
-}
+const testFunction = function () {
+  return this;
+};
 
 console.log(testFunction());
 console.log(testFunction() === global);
 
 const yuJin = {
-    name: '안유진',
-    year: 2003,
-    sayHello: function(){
-        return `안녕하세요 저는 ${this.name}입니다.`;
-    },
-}
+  name: 'Yujin',
+  year: 2003,
+  sayHello: function () {
+    return `Hello, I am ${this.name}.`;
+  },
+};
 
 console.log(yuJin.sayHello());
 
-function Person(name, year){
-    this.name = name;
-    this.year = year;
+function Person(name, year) {
+  this.name = name;
+  this.year = year;
 
-    this.sayHello = function(){
-        return `안녕하세요 저는 ${this.name}입니다.`;
-    }
+  this.sayHello = function () {
+    return `Hello, I am ${this.name}.`;
+  };
 }
 
-const yuJin2 = new Person('안유진', 2003);
+const yuJin2 = new Person('Yujin', 2003);
 console.log(yuJin2.sayHello());
 
-Person.prototype.dance = function(){
-    function dance2(){
-        return `${this.name}이 춤을춥니다.`;
-    }
+Person.prototype.dance = function () {
+  function dance2() {
+    return `${this.name} is dancing.`; //this.name is undefined
+  }
 
-    return dance2();
-}
+  return dance2();
+};
 console.log(yuJin2.dance());
 
 /**
- * this 키워드가 어떤걸 가르키냐는 세가지만 기억하면된다.
- * 
- * 1) 일반 함수 호출할땐 this가 최상위 객체 (global 또는 window)를 가리킨다.
- * 2) 메서드로 호출할땐 호출된 객체를 가리킨다.
- * 3) new 키워드를 사용해서 객체를 생성했을땐 객체를 가리킨다.
+ * Remember three things about what the this keyword refers to:
+ *
+ * 1) When called as a regular function, this refers to the top-level object (global or window).
+ * 2) When called as a method, this refers to the calling object.
+ * 3) When an object is created using the new keyword, this refers to the object.
  */
 
 /**
@@ -57,25 +58,25 @@ console.log(yuJin2.dance());
  * 2) call()
  * 3) bind()
  */
-function returnName(){
-    return this.name;
+function returnName() {
+  return this.name; //this ==> global now so undefined
 }
 
 console.log(returnName());
 
 const yuJin3 = {
-    name: '안유진',
-}
+  name: 'Yujin',
+};
 
 console.log(returnName.call(yuJin3));
 console.log(returnName.apply(yuJin3));
 
 /**
- * 1) call -> 컴마를 기반으로 아규먼트를 순서대로 넘겨주고
- * 2) apply ->  아규먼트를 리스트로 입력해야한다.
+ * 1) call -> Passes arguments in order based on commas.
+ * 2) apply -> Arguments must be entered as a list.
  */
-function multiply(x, y, z){
-    return `${this.name} / 결과값 : ${x * y * z}`;
+function multiply(x, y, z) {
+  return `${this.name} / Result: ${x * y * z}`;
 }
 
 console.log(multiply.call(yuJin3, 3, 4, 5));
