@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "outDir": "dist", //after config, store the js file to "dist" folder
+    "target": "es6",
+    "module": "commonjs",
+    "lib": ["es6"],
+
+    "sourceMap": true
+  }
+}
