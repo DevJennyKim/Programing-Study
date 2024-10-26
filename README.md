@@ -1,8 +1,9 @@
 # Programing
 
-<ul display="flex" flex-derection="colrum"> <b>This is the repository for study of Programing. I study when I :</b>
-<li> Didn't get it perfectly</li>
-<li> Want to know more about it</li>
-<li> Have free time(After finish all project and assignment)</li>
+**This is the repository for study of Programming. I study when I:**
 
-<p> I've never spent my time quite like this before—I think I genuinely enjoy learning to code.😏</p>
+- Didn't get it perfectly
+- Want to know more about it
+- Have free time (after finishing all projects and assignments)
+
+I've never spent my time quite like this before. I think I genuinely enjoy learning to code.😄
