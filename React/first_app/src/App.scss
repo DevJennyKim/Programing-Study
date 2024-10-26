@@ -1,0 +1,15 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+
+  gap: 0.5rem;
+  input {
+    width: 30%;
+  }
+  button {
+    width: 30%;
+  }
+}
