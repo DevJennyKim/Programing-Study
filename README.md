@@ -1,6 +1,6 @@
 # Programing
 
-<ul> This is the repository for study of Programing. I study when I :
+<ul> <b>This is the repository for study of Programing. I study when I :</b>
 <li> Didn't get it perfectly</li>
 <li> Want to know more about it</li>
 <li> Have free time(After finish all project and assignment)</li>
