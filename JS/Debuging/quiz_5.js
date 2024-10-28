@@ -4,12 +4,6 @@
 // Write a function that checks if all items in an array are numbers. Return a boolean.
 
 // ==============================================
-/**
- * input : nArray[1,2,3,4,5,6]
- * result : result = true
- * 1. declare the const nArray
- * 2. use the for
- */
 
 const nArray = [1, 2, 3, 'true', 5, 6];
 let result1 = [];
@@ -24,7 +18,7 @@ function checker1(array) {
 }
 checker1(nArray);
 console.log(result1);
-
+//=========================================================
 let result;
 function checker2(array) {
   for (let i = 0; i < array.length; i++) {
@@ -34,6 +28,13 @@ function checker2(array) {
     }
   }
 }
-
 checker2(nArray);
 console.log(result);
+
+//=================================================================
+
+function checker3(array) {
+  const result = array.every((item) => typeof item === 'number') ? true : false;
+}
+
+checker3(nArray);
