@@ -71,3 +71,10 @@ console.log(palindromeChecker('banana'));
 console.log(palindromeChecker('123456'));
 console.log(palindromeChecker('111111'));
 console.log(palindromeChecker('abc dcba'));
+
+/*
+ function palindromeChecker2(str){
+    for(let i=; )   
+ }*/
+
+//Great job! How might be try using a loop to do this same function?
