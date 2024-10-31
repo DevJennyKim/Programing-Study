@@ -1,0 +1,14 @@
+body {
+  width: 100vw;
+  padding: 3rem 0;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
+img {
+  width: 40rem;
+}
