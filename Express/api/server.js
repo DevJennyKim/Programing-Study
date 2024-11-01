@@ -85,6 +85,7 @@ app
   .get((req, res) => {
     res.send('Get an orders!');
   })
+
   .post((req, res) => {
     res
       .status(503)
@@ -104,7 +105,7 @@ app.route('/ingredients/:ingredient', (req, res) => {
   if (ingredients.includes(ing)) {
     res.send('That ingredient is in stock');
   } else {
-    res.send('That ingredient is out of stock');
+    res.status(503).json({ message: 'That ingredient is out of stock' });
   }
 });
 
