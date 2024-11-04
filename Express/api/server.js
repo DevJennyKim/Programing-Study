@@ -78,7 +78,7 @@ app.get('/famousdish', (req, res) => {
   res.send('steak');
 });
 app.get('/ingredients', (req, res) => {
-  res.send(ingredients);
+  res.json(ingredients);
 });
 app
   .route('/orders')
