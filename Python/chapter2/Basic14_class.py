@@ -43,6 +43,9 @@
 #         return self.result
 
 class FourCal:
+  def __init__(self,first, second):
+    self.first = first
+    self.second = second
   def setdata(self,first, second):
     self.first = first
     self.second = second
@@ -59,18 +62,50 @@ class FourCal:
     result = self.first / self.second
     return result
 
-a = FourCal()
-b = FourCal()
+# a = FourCal(4,2)
+# b = FourCal(1,3)
 
-a.setdata(4,2)
-b.setdata(1,3)
+# a.setdata(4,2)
+# b.setdata(1,3)
 
+# print("add = ",a.add())
+# print("mul = ",a.mul())
+# print("sub = ",a.sub())
+# print("div = ",a.div())
+# print(a.first)
+# print(a.second)
+# print(b.first)
+# print(b.second)
+
+class MoreFourCal(FourCal):
+  def pow(self):
+    result = self.first ** self.second
+    return result
+
+class SafeFourCal(FourCal):
+  def div(self):
+    if self.second == 0:  
+      return 0
+    else:
+      return self.first / self.second
+
+a=MoreFourCal(4,0)
 print("add = ",a.add())
-print("mul = ",a.mul())
-print("sub = ",a.sub())
-print("div = ",a.div())
-print(a.first)
-print(a.second)
-print(b.first)
-print(b.second)
+print("pow = ",a.pow())
 
+a=SafeFourCal(4,0)
+print("div = ",a.div())
+
+
+print("="*50)
+
+class Family:
+  lastname = "Kim"
+
+a = Family()
+b = Family()
+c = Family()
+
+a.lastname("Junior")
+
+print(a.lastname())
